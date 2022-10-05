@@ -6,8 +6,9 @@ import "../src/styles/global.style.scss";
 import { convertTo24HourFormat } from "./utils/convertTo24HourFormat";
 
 function App() {
-  // Get user Ip on load
   const [state, dispatch] = useReducer(infoReducer, INITIAL_STATE);
+  const [showMoreIsOpen, setShowMoreIsOpen] = useState(false);
+
   const [ip, setIp] = useState<string>("");
   const services = new ApisServices();
 
@@ -32,27 +33,27 @@ function App() {
   }, [ip]);
 
   return (
-    <div className='App'>
+    <>
       {state.locationInfo.loading ? (
         <>Loading...</>
       ) : (
-        <>
+        <div className={`app-container ${showMoreIsOpen ? "show-more" : ""}`}>
           <Clock
             time={convertTo24HourFormat(state.time.data?.datetime)}
             country={state.locationInfo.data?.country}
             countryCode={state.locationInfo.data?.countryCode}
-            quote={{
-              author: state.quote.data.author,
-              quote: state.quote.data.en
-            }}
+            showMoreIsOpen={showMoreIsOpen}
+            setShowMoreIsOpen={setShowMoreIsOpen}
           />
-        </>
+          <CountryInfo
+            timeZone={state.locationInfo.data.timezone}
+            dayOfTheYear={state.time.data.day_of_year}
+            dayOfTheWeek={state.time.data.day_of_week}
+            weekNumber={state.time.data.week_number}
+          />
+        </div>
       )}
-
-      {/* {state.quote} */}
-
-      {/* <CountryInfo /> */}
-    </div>
+    </>
   );
 }
 
