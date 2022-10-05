@@ -1,45 +1,57 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { Clock, CountryInfo } from "./components/";
+import { infoReducer, INITIAL_STATE } from "./reducers/infoReducer";
+import { ApisServices } from "./services/apisServices";
 import "../src/styles/global.style.scss";
+import { convertTo24HourFormat } from "./utils/convertTo24HourFormat";
 
 function App() {
   // Get user Ip on load
-  const [ip, setIp] = useState("");
-  const [time, setTime] = useState("");
-  const [location, setLocation] = useState("");
+  const [state, dispatch] = useReducer(infoReducer, INITIAL_STATE);
+  const [ip, setIp] = useState<string>("");
+  const services = new ApisServices();
 
   useEffect(() => {
-    const getUserPublicIp = async () => {
-      const response = await fetch("https://api.ipify.org?format=json");
-      const data = await response.json();
-      setIp(data.ip);
-    };
-    getUserPublicIp();
+    services.getUserPublicIp(dispatch);
+    services.getQuote(dispatch);
   }, []);
 
   useEffect(() => {
-    const getTime = async () => {
-      const response = await fetch(`http://worldtimeapi.org/api/ip/${ip}`);
-      const data = await response.json();
-      console.log(data.datetime);
-      const localTime = new Date(data.datetime).toLocaleTimeString();
-      setTime(localTime);
-    };
-    getTime();
+    setIp(state.ipNumber.data);
+  }, [state.ipNumber.data]);
 
-    const getLocationWithIp = async () => {
-      const response = await fetch(`http://ip-api.com/json/${ip}`);
-      const data = await response.json();
-      console.log(data);
-      setLocation(data.city);
-    };
-    getLocationWithIp();
-  }, [ip, location]);
+  useEffect(() => {
+    services.getTime(ip, dispatch);
+    services.getLocationWithIp(ip, dispatch);
+
+    const interval = setInterval(() => {
+      services.getTime(ip, dispatch);
+    }, 20000);
+
+    return () => clearInterval(interval);
+  }, [ip]);
 
   return (
     <div className='App'>
-      <Clock />
-      <CountryInfo />
+      {state.locationInfo.loading ? (
+        <>Loading...</>
+      ) : (
+        <>
+          <Clock
+            time={convertTo24HourFormat(state.time.data?.datetime)}
+            country={state.locationInfo.data?.country}
+            countryCode={state.locationInfo.data?.countryCode}
+            quote={{
+              author: state.quote.data.author,
+              quote: state.quote.data.en
+            }}
+          />
+        </>
+      )}
+
+      {/* {state.quote} */}
+
+      {/* <CountryInfo /> */}
     </div>
   );
 }
