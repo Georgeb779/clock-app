@@ -1,21 +1,30 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import { ClockProps } from "../../interfaces";
 import { infoReducer, INITIAL_STATE } from "../../reducers/infoReducer";
+import Button from "../Button";
+import IconArrow from "../../assets/icon-arrow.svg";
 import "./style.scss";
+import { ApisServices } from "../../services/apisServices";
+import Quote from "../Quote";
 
+export function Clock({
+  time,
+  country,
+  countryCode,
+  showMoreIsOpen,
+  setShowMoreIsOpen
+}: ClockProps) {
+  const [state, dispatch] = useReducer(infoReducer, INITIAL_STATE);
+  const services = new ApisServices();
 
-
-export function Clock({ time, country, countryCode, quote }: ClockProps) {
   return (
     <div
-      className={`datetime__container ${
+      className={`
+      datetime__container  ${
         time && Number(time.split(":")[0]) >= 18 ? "night" : "day"
-      }`}
+      } `}
     >
-      <div className='quote__container'>
-        <p className='quote__quote-item'>"{quote.quote}"</p>
-        <p className='quote__author-item'>{quote.author}</p>
-      </div>
+      <Quote />
 
       <div className='clock__container'>
         <div>
@@ -34,7 +43,14 @@ export function Clock({ time, country, countryCode, quote }: ClockProps) {
             {country}, {countryCode}
           </p>
         </div>
-        <button>More</button>
+        <Button
+          text='MORE'
+          type={`btn__show-more ${showMoreIsOpen ? "open" : "close"} `}
+          action={() => {
+            setShowMoreIsOpen(!showMoreIsOpen);
+          }}
+          icon={IconArrow}
+        />
       </div>
     </div>
   );
