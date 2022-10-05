@@ -1,0 +1,96 @@
+// variable container
+$block: "datetime";
+$block_2: "quote";
+$block_3: "clock";
+
+$bg-day-desktop: url(/src/assets/bg-image-daytime-desktop.jpg);
+$bg-day-mobile: url(/src/assets/bg-image-daytime.jpg);
+$bg-day-tablet: url(/src/assets/bg-image-daytime-tablet.jpg);
+
+$bg-night-desktop: url(/src/assets/bg-image-nighttime-desktop.jpg);
+$bg-night-mobile: url(/src/assets/bg-image-nighttime.jpg);
+$bg-night-tablet: url(/src/assets/bg-image-nighttime-tablet.jpg);
+
+.#{$block} {
+  &__container {
+    display: flex;
+    width: 375px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #fff;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#000000, 0.5);
+    }
+
+    &.day {
+      background-image: $bg-day-mobile;
+    }
+    &.night {
+      background-image: $bg-night-mobile;
+    }
+    .#{$block_2} {
+      &__container {
+        z-index: 1;
+        padding: 31px 25px;
+      }
+      &__author-item {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 22px;
+      }
+      &__quote-item {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 22px;
+        margin-bottom: 8px;
+      }
+    }
+    .#{$block_3} {
+      &__container {
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+        z-index: 1;
+        button {
+          margin-bottom: 40px;
+        }
+      }
+      &__greeting-item {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 25px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      &__time-item {
+        font-weight: 700;
+        font-size: 100px;
+        line-height: 100px;
+        margin-bottom: 16px;
+      }
+      &__country-item {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 28px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 48px;
+      }
+    }
+  }
+}
