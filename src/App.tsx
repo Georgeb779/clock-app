@@ -14,7 +14,6 @@ function App() {
 
   useEffect(() => {
     services.getUserPublicIp(dispatch);
-    services.getQuote(dispatch);
   }, []);
 
   useEffect(() => {
@@ -34,7 +33,9 @@ function App() {
 
   return (
     <>
-      {state.locationInfo.loading ? (
+      {state.locationInfo.loading ||
+      state.locationInfo.loading ||
+      state.quote.loading ? (
         <>Loading...</>
       ) : (
         <div className={`app-container ${showMoreIsOpen ? "show-more" : ""}`}>

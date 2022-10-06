@@ -98,6 +98,9 @@ $bg-night-tablet: url(/src/assets/bg-image-nighttime-tablet.jpg);
         z-index: 1;
       }
       &__greeting-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
         font-weight: 400;
         font-size: 15px;
         line-height: 25px;

@@ -1,11 +1,9 @@
-import React, { useReducer, useState } from "react";
 import { ClockProps } from "../../interfaces";
-import { infoReducer, INITIAL_STATE } from "../../reducers/infoReducer";
-import Button from "../Button";
 import IconArrow from "../../assets/icon-arrow.svg";
+import { Quote, Button } from "../";
+import MoonIcon from "../../assets/icon-moon.svg";
+import SunIcon from "../../assets/icon-sun.svg";
 import "./style.scss";
-import { ApisServices } from "../../services/apisServices";
-import Quote from "../Quote";
 
 export function Clock({
   time,
@@ -14,9 +12,6 @@ export function Clock({
   showMoreIsOpen,
   setShowMoreIsOpen
 }: ClockProps) {
-  const [state, dispatch] = useReducer(infoReducer, INITIAL_STATE);
-  const services = new ApisServices();
-
   return (
     <div
       className={`
@@ -30,11 +25,20 @@ export function Clock({
         <div>
           <div className='clock__greeting-item'>
             {time && time >= "00:00" && time <= "11:59" ? (
-              <p>Good Morning</p>
+              <>
+                <img src={SunIcon} alt='sun' />
+                <p>Good Morning</p>
+              </>
             ) : time && time >= "12:00" && time <= "18:00" ? (
-              <p>Good Afternoon</p>
+              <>
+                <img src={SunIcon} alt='sun' />
+                <p>Good Afternoon</p>
+              </>
             ) : (
-              <p>Good Night</p>
+              <>
+                <img src={MoonIcon} alt='moon' />
+                <p>Good Night</p>
+              </>
             )}
           </div>
 
@@ -44,7 +48,7 @@ export function Clock({
           </p>
         </div>
         <Button
-          text='MORE'
+          text={showMoreIsOpen ? "LESS" : "MORE"}
           type={`btn__show-more ${showMoreIsOpen ? "open" : "close"} `}
           action={() => {
             setShowMoreIsOpen(!showMoreIsOpen);
