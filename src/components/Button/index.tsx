@@ -2,7 +2,7 @@ import React from "react";
 import { ButtonProps } from "../../interfaces";
 import "./style.scss";
 
-export default function Button({ text, type, action, icon }: ButtonProps) {
+export function Button({ text, type, action, icon }: ButtonProps) {
   return (
     <div onClick={() => action()} className={type}>
       {text && <span>{text}</span>}

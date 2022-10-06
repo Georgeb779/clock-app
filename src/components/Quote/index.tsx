@@ -1,10 +1,10 @@
 import React, { useEffect, useReducer } from "react";
 import { infoReducer, INITIAL_STATE } from "../../reducers/infoReducer";
 import { ApisServices } from "../../services/apisServices";
-import Button from "../Button";
+import { Button } from "../";
 import RefreshIcon from "../../assets/icon-refresh.svg";
 
-export default function Quote() {
+export function Quote() {
   const [state, dispatch] = useReducer(infoReducer, INITIAL_STATE);
   const services = new ApisServices();
 
@@ -13,7 +13,7 @@ export default function Quote() {
   useEffect(() => {
     services.getQuote(dispatch);
   }, []);
-
+  
   return (
     <div className='quote__container'>
       {author && (
