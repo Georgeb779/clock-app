@@ -1,6 +1,5 @@
 // variable container
 $block: "datetime";
-$block_2: "quote";
 $block_3: "clock";
 
 .#{$block} {
@@ -21,35 +20,6 @@ $block_3: "clock";
       background-color: rgba(#000000, 0.5);
     }
 
-    .#{$block_2} {
-      &__container {
-        display: flex;
-        z-index: 1;
-        padding: 31px 25px;
-      }
-      &__text-container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        max-width: 540px;
-        margin-right: 10px;
-      }
-      &__author-item {
-        font-family: "Inter";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 22px;
-      }
-      &__quote-item {
-        font-family: "Inter";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 22px;
-        margin-bottom: 8px;
-      }
-    }
     .#{$block_3} {
       &__container {
         display: flex;
@@ -82,6 +52,24 @@ $block_3: "clock";
         letter-spacing: 3px;
         text-transform: uppercase;
         margin-bottom: 48px;
+      }
+      @media (min-width: 768px) {
+        &__container {
+          margin-bottom: 98px;
+          padding: 0 160px;
+        }
+        &__greeting-item {
+          font-size: 20px;
+          line-height: 28px;
+        }
+        &__time-item {
+          font-size: 200px;
+          line-height: 200px;
+        }
+        &__country-item {
+          font-size: 24px;
+          line-height: 28px;
+        }
       }
     }
   }

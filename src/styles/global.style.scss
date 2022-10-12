@@ -48,7 +48,7 @@ li {
     transition: all 0.8s ease;
     height: 100vh;
     &.open {
-      transform: translate(0, -38%);
+      transform: translate(0, -35%);
     }
   }
 
@@ -67,6 +67,11 @@ li {
 
     &.night {
       background-image: $bg-night-tablet;
+    }
+    .show-more {
+      &.open {
+        transform: translate(0, -35%);
+      }
     }
   }
   // media query >=992px  (desktop)

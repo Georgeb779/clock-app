@@ -40,5 +40,27 @@ $block: "country-info";
       font-size: 20px;
       line-height: 24px;
     }
+
+    @media (min-width: 768px) {
+      padding: 48px 0;
+
+      li {
+        flex-direction: column;
+        margin-left: 165px;
+      }
+      ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      p {
+        font-size: 15px;
+      }
+      span {
+        justify-content: flex-start;
+        font-size: 25px;
+        line-height: 35px;
+        text-align: start;
+      }
+    }
   }
 }

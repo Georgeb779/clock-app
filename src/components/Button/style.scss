@@ -43,4 +43,10 @@ $block: "btn";
     cursor: pointer;
     height: fit-content;
   }
+  @media (min-width: 768px) {
+    &__show-more {
+      align-self: flex-end;
+      margin-right: 165px;
+    }
+  }
 }

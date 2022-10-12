@@ -16,12 +16,14 @@ export function CountryInfo({
       }`}
     >
       <ul>
+        
         <li>
           <p>CURRENT TIMEZONE</p> <span>{timeZone}</span>
         </li>
         <li>
           <p>Day of the year</p> <span>{dayOfTheYear}</span>
         </li>
+
         <li>
           <p>Day of the week</p> <span>{dayOfTheWeek}</span>
         </li>
