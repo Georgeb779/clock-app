@@ -13,12 +13,7 @@ export function Clock({
   setShowMoreIsOpen
 }: ClockProps) {
   return (
-    <div
-      className={`
-      datetime__container  ${
-        time && Number(time.split(":")[0]) >= 18 ? "night" : "day"
-      } `}
-    >
+    <div className='datetime__container'>
       <Quote />
 
       <div className='clock__container'>

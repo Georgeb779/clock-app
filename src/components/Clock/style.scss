@@ -3,25 +3,13 @@ $block: "datetime";
 $block_2: "quote";
 $block_3: "clock";
 
-$bg-day-desktop: url(/src/assets/bg-image-daytime-desktop.jpg);
-$bg-day-mobile: url(/src/assets/bg-image-daytime.jpg);
-$bg-day-tablet: url(/src/assets/bg-image-daytime-tablet.jpg);
-
-$bg-night-desktop: url(/src/assets/bg-image-nighttime-desktop.jpg);
-$bg-night-mobile: url(/src/assets/bg-image-nighttime.jpg);
-$bg-night-tablet: url(/src/assets/bg-image-nighttime-tablet.jpg);
-
 .#{$block} {
   &__container {
     display: flex;
-    min-width: 375px;
-    height: 100vh;
     flex-direction: column;
     justify-content: space-between;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: all 0.8s ease;
+    min-width: 375px;
+    height: 100%;
     color: #fff;
 
     &::after {
@@ -33,33 +21,6 @@ $bg-night-tablet: url(/src/assets/bg-image-nighttime-tablet.jpg);
       background-color: rgba(#000000, 0.5);
     }
 
-    &.day {
-      background-image: $bg-day-mobile;
-    }
-
-    &.night {
-      background-image: $bg-night-mobile;
-    }
-    // media query 768px to 992px (tablet)
-    @media (min-width: 768px) {
-      &.day {
-        background-image: $bg-day-tablet;
-      }
-
-      &.night {
-        background-image: $bg-night-tablet;
-      }
-    }
-    // media query >=992px  (desktop)
-    @media (min-width: 992px) {
-      &.day {
-        background-image: $bg-day-desktop;
-      }
-
-      &.night {
-        background-image: $bg-night-desktop;
-      }
-    }
     .#{$block_2} {
       &__container {
         display: flex;

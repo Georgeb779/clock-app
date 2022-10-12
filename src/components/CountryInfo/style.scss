@@ -1,11 +1,10 @@
-// country-info variable
 $block: "country-info";
 .#{$block} {
   &__container {
-    margin-top: 48px;
-    padding: 0 20px;
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(40.7742px);
+    padding: 48px 20px;
+    background: rgb(255 255 255 / 54%);
+    backdrop-filter: blur(40px);
+    height: 100%;
 
     li {
       display: flex;
