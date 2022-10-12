@@ -2,15 +2,24 @@ $block: "country-info";
 .#{$block} {
   &__container {
     padding: 48px 20px;
-    background: rgb(255 255 255 / 54%);
-    backdrop-filter: blur(40px);
     height: 100%;
+    transition: all 0.5s ease;
+    backdrop-filter: blur(40px);
+
+    &.day {
+      background: rgb(255 255 255 / 54%);
+      color: #303030;
+    }
+
+    &.night {
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+    }
 
     li {
       display: flex;
       width: 100%;
       text-transform: uppercase;
-      color: #303030;
       margin-bottom: 16px;
     }
     p {

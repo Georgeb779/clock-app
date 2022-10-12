@@ -3,13 +3,18 @@ import { CountryInfoProps } from "../../interfaces";
 import "./style.scss";
 
 export function CountryInfo({
+  time,
   timeZone,
   dayOfTheYear,
   dayOfTheWeek,
   weekNumber
 }: CountryInfoProps) {
   return (
-    <div className='country-info__container'>
+    <div
+      className={`country-info__container  ${
+        time && Number(time.split(":")[0]) >= 18 ? "night" : "night"
+      }`}
+    >
       <ul>
         <li>
           <p>CURRENT TIMEZONE</p> <span>{timeZone}</span>

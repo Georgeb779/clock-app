@@ -41,7 +41,7 @@ function App() {
             state.time.data?.datetime &&
             Number(state.time.data?.datetime.split(":")[0]) >= 18
               ? "night"
-              : "day"
+              : "night"
           }`}
         >
           <div className={`show-more ${showMoreIsOpen ? "open" : "close"}`}>
@@ -53,6 +53,7 @@ function App() {
               setShowMoreIsOpen={setShowMoreIsOpen}
             />
             <CountryInfo
+              time={convertTo24HourFormat(state.time.data?.datetime)}
               timeZone={state.locationInfo.data.timezone}
               dayOfTheYear={state.time.data.day_of_year}
               dayOfTheWeek={state.time.data.day_of_week}
