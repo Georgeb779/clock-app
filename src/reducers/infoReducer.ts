@@ -21,10 +21,7 @@ export const INITIAL_STATE = {
   }
 };
 
-export const infoReducer = (
-  state: { [x: string]: any },
-  action: { type: any; payload: { name: string | number; data: any } }
-) => {
+export const infoReducer = (state: any, action: any) => {
   switch (action.type) {
     case ACTION_TYPES.FETCH_START:
       return {
