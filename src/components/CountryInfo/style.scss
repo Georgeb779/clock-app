@@ -41,7 +41,7 @@ $block: "country-info";
       line-height: 24px;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
       padding: 48px 0;
 
       li {
@@ -51,6 +51,7 @@ $block: "country-info";
       ul {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        height: 35%;
       }
       p {
         font-size: 15px;
@@ -60,6 +61,7 @@ $block: "country-info";
         font-size: 25px;
         line-height: 35px;
         text-align: start;
+        width: 100%;
       }
     }
   }

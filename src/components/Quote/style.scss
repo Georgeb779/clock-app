@@ -29,7 +29,10 @@ $block: "quote";
     line-height: 22px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
+    &__container {
+      padding: 31px 160px;
+    }
     &__quote-item {
       font-size: 18px;
       line-height: 28px;
