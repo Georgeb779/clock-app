@@ -4,6 +4,7 @@ import { Quote, Button } from "../";
 import MoonIcon from "../../assets/icon-moon.svg";
 import SunIcon from "../../assets/icon-sun.svg";
 import "./style.scss";
+import { useEffect } from "react";
 
 export function Clock({
   time,
@@ -12,6 +13,34 @@ export function Clock({
   showMoreIsOpen,
   setShowMoreIsOpen
 }: ClockProps) {
+  ``
+  const catchScrollAction = (e: any) => {
+    if (e.deltaY > 0) {
+      setShowMoreIsOpen(true);
+    } else {
+      setShowMoreIsOpen(false);
+    }
+  };
+  const touchScreenAction = (e: any) => {
+    if (e.touches[0].clientY > 0) {
+      setShowMoreIsOpen(true);
+    } else {
+      setShowMoreIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("wheel", catchScrollAction);
+    window.addEventListener("touchstart", touchScreenAction);
+
+    return () => {
+      window.removeEventListener("wheel", catchScrollAction);
+      window.removeEventListener("touchstart", touchScreenAction);
+    };
+  }, []);
+
+  // catchScrollAction(e)
+
   return (
     <div className='datetime__container'>
       <Quote />

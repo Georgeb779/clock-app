@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-import { Clock, CountryInfo } from "./components/";
+import { Clock, CountryInfo, Loading } from "./components/";
 import { infoReducer, INITIAL_STATE } from "./reducers/infoReducer";
 import { ApisServices } from "./services/apisServices";
 import "../src/styles/global.style.scss";
@@ -21,29 +21,32 @@ function App() {
   }, [state.ipNumber.data]);
 
   useEffect(() => {
-    services.getTime(ip, dispatch);
-    services.getLocationWithIp(ip, dispatch);
-
-    const interval = setInterval(() => {
+    setTimeout(() => {
       services.getTime(ip, dispatch);
-    }, 20000);
+      services.getLocationWithIp(ip, dispatch);
 
-    return () => clearInterval(interval);
+      const interval = setInterval(() => {
+        services.getTime(ip, dispatch);
+      }, 20000);
+      return () => clearInterval(interval);
+    }, 2000);
   }, [ip]);
+
+  const getTimeOfTheDay = () => {
+    return state.time.data?.datetime &&
+      Number(state.time.data?.datetime.split(":")[0]) >= 18
+      ? "night"
+      : "night";
+  };
 
   return (
     <>
       {state.time.data === "" ? (
-        <>Loading...</>
+        <>
+          <Loading time={getTimeOfTheDay()} />
+        </>
       ) : (
-        <div
-          className={`app-container ${
-            state.time.data?.datetime &&
-            Number(state.time.data?.datetime.split(":")[0]) >= 18
-              ? "night"
-              : "night"
-          }`}
-        >
+        <div className={`app-container ${getTimeOfTheDay()}`}>
           <div className={`show-more ${showMoreIsOpen ? "open" : "close"}`}>
             <Clock
               time={convertTo24HourFormat(state.time.data?.datetime)}

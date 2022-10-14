@@ -10,6 +10,7 @@ $block_3: "clock";
     min-width: 375px;
     height: 100%;
     color: #fff;
+    cursor: default;
 
     &::after {
       content: "";
