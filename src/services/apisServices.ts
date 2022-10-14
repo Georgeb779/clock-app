@@ -29,7 +29,7 @@ export class ApisServices {
     dispatch({ type: ACTION_TYPES.FETCH_START, payload: { name: "time" } });
     if (ip !== "" && ip !== undefined) {
       try {
-        const response = await fetch(`http://worldtimeapi.org/api/ip/${ip}`);
+        const response = await fetch(`https://worldtimeapi.org/api/ip/${ip}`);
         const data = await response.json();
         return dispatch({
           type: ACTION_TYPES.FETCH_SUCCESS,
