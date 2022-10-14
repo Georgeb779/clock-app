@@ -21,10 +21,10 @@ function App() {
   }, [state.ipNumber.data]);
 
   useEffect(() => {
+    services.getTime(ip, dispatch);
+    
     setTimeout(() => {
-      services.getTime(ip, dispatch);
       services.getLocationWithIp(ip, dispatch);
-
       const interval = setInterval(() => {
         services.getTime(ip, dispatch);
       }, 20000);
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <>
-      {state.time.data === "" ? (
+      {state.locationInfo.data === "" ? (
         <>
           <Loading time={getTimeOfTheDay()} />
         </>

@@ -22,28 +22,14 @@ export function Clock({
     }
   };
 
-  const touchScreenAction = (e: any) => {
-    //finger slide up to down
-    if (e.touches[0].clientY > e.touches[1].clientY) {
-      setShowMoreIsOpen(true);
-    }
-    //finger slide down to up
-    else {
-      setShowMoreIsOpen(false);
-    }
-  };
-
   useEffect(() => {
     window.addEventListener("wheel", catchScrollAction);
-    window.addEventListener("touchstart", touchScreenAction);
 
     return () => {
       window.removeEventListener("wheel", catchScrollAction);
-      window.removeEventListener("touchstart", touchScreenAction);
     };
   }, []);
 
-  // catchScrollAction(e)
 
   return (
     <div className='datetime__container'>
