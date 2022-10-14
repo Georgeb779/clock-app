@@ -34,10 +34,12 @@ function App() {
 
   const getTimeOfTheDay = () => {
     return state.time.data?.datetime &&
-      Number(state.time.data?.datetime.split(":")[0]) >= 18
+      Number(convertTo24HourFormat(state.time.data?.datetime)?.split(":")[0]) >=
+        18
       ? "night"
-      : "night";
+      : "day";
   };
+
   return (
     <>
       {state.time.data === "" ? (
