@@ -29,7 +29,7 @@ function App() {
         services.getTime(ip, dispatch);
       }, 20000);
       return () => clearInterval(interval);
-    }, 2000);
+    }, 1000);
   }, [ip]);
 
   const getTimeOfTheDay = () => {
@@ -38,7 +38,6 @@ function App() {
       ? "night"
       : "night";
   };
-
   return (
     <>
       {state.time.data === "" ? (
@@ -50,8 +49,8 @@ function App() {
           <div className={`show-more ${showMoreIsOpen ? "open" : "close"}`}>
             <Clock
               time={convertTo24HourFormat(state.time.data?.datetime)}
-              country={state.locationInfo.data?.country}
-              countryCode={state.locationInfo.data?.countryCode}
+              country={state.locationInfo.data?.country_name}
+              countryCode={state.locationInfo.data?.country_code}
               showMoreIsOpen={showMoreIsOpen}
               setShowMoreIsOpen={setShowMoreIsOpen}
             />

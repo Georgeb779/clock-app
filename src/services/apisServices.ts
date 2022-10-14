@@ -51,7 +51,7 @@ export class ApisServices {
     });
     try {
       if (ip) {
-        const response = await fetch(`https://ip-api.com/json/${ip}`);
+        const response = await fetch(`https://ipapi.co/${ip}/json/`);
         const data = await response.json();
         return dispatch({
           type: ACTION_TYPES.FETCH_SUCCESS,
