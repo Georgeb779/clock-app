@@ -13,7 +13,7 @@ export function Clock({
   showMoreIsOpen,
   setShowMoreIsOpen
 }: ClockProps) {
-  ``
+  ``;
   const catchScrollAction = (e: any) => {
     if (e.deltaY > 0) {
       setShowMoreIsOpen(true);
@@ -21,10 +21,14 @@ export function Clock({
       setShowMoreIsOpen(false);
     }
   };
+
   const touchScreenAction = (e: any) => {
-    if (e.touches[0].clientY > 0) {
+    //finger slide up to down
+    if (e.touches[0].clientY > e.touches[1].clientY) {
       setShowMoreIsOpen(true);
-    } else {
+    }
+    //finger slide down to up
+    else {
       setShowMoreIsOpen(false);
     }
   };
