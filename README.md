@@ -65,7 +65,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Link to solution URL here]()
+- Solution URL: [Link to solution URL here](https://www.frontendmentor.io/solutions/clock-ap-LhbhYJlfO3)
 - Live Site URL: [Link to live site](https://clock-app-gb.netlify.app/)
 
 ## Author
