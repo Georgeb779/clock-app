@@ -1,6 +1,7 @@
 # Frontend Mentor - Clock app
 
-This is a solution to the [Calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/clock-app-LMFaxFwrM). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Clock app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/clock-app-LMFaxFwrM). This challenge covers working with external APIs to set data based on a visitor's location. You'll also be using logic to set content depending on the time of day.
+
 
 ## 🧐 What's inside?
 
@@ -64,7 +65,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Link to solution URL here](https://www.frontendmentor.io/solutions/responsive-calculator-built-with-vanilla-js-w9UinqToJQ)
+- Solution URL: [Link to solution URL here]()
 - Live Site URL: [Link to live site](https://clock-app-gb.netlify.app/)
 
 ## Author
