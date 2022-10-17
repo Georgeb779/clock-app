@@ -72,4 +72,4 @@ Users should be able to:
 
 - Frontend Mentor - [@Georgeb79](https://www.frontendmentor.io/profile/Georgeb779)
 - Linkedin - [@GeorgeBaez](https://www.linkedin.com/in/george-baez/)
-```
+- Twitter - [@Georgeb779](https://twitter.com/Georgeb779)
