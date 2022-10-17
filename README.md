@@ -59,9 +59,9 @@ Users should be able to:
 
 ![Mobile active view of solution](./screenshot/mobile-active.png)
 
-![Desktop view of solution](./design/desktop.png)
+![Desktop view of solution](./screenshot/desktop.png)
 
-![Desktop active view of solution](./design/desktop-active.png)
+![Desktop active view of solution](./screenshot/desktop-active.png)
 
 ### Links
 
